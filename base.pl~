@@ -1,0 +1,36 @@
+%% enfermedad(mal_De_Panama) :- sintoma(marchitamiento),
+%% sintoma(pudricion_semillas),
+%% sintoma(pudricion_raices),
+%% sintoma(pudricion_tallo),
+%% sintoma(pudricion_tuberculos),
+%% sintoma(mancha_marron),
+%% sintoma(necrosis),
+%% sintoma(seudotallo_amarillo),
+%% sintoma(seudotallo_purpura),
+%% sintoma(seudotallo_rojo),
+%% sintoma(amarillamiento).
+
+
+sintoma().
+enfermedad(mal_De_Panama) :- sintoma(necrosis).
+%% sintoma(amarillamiento).
+%% sintoma(marchitamiento).
+%% sintoma(pudricion_semillas).
+%% sintoma(pudricion_raices).
+%% sintoma(pudricion_tallo).
+%% sintoma(pudricion_tuberculos).
+
+%% sintoma(mancha_marron).
+%% sintoma(necrosis).
+%% sintoma(seudotallo_amarillo).
+%% sintoma(seudotallo_purpura).
+%% sintoma(seudotallo_rojo).
+
+leer_sintoma :-
+write('Porfavor ingrese el sintoma:'),
+nl,
+read(X),
+assertz(sintoma(X)).
+
+ enfermedades_posibles(X):-
+ member(X, [resaca, necrosis, panalitis]).
