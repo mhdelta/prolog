@@ -90,9 +90,9 @@ ask(Pregunta) :-
     write('? '),
     read(Respuesta),
     nl,
-    ( (Respuesta == yes ; Respuesta == y)
+    ((Respuesta == yes ; Respuesta == y)
       ->
-       assert(yes(Pregunta)) ;
+       assert(yes(Pregunta));
        assert(no(Pregunta)), fail).
 
 /* How to verificar something */
