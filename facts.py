@@ -4,120 +4,52 @@ pyDatalog.create_terms('X, Y')
 pyDatalog.create_terms('ask, que_dolor, Attr, Val, preguntar, que_color')
 pyDatalog.create_terms('yes, no, sintoma')
 
-+sintoma('dolor_cabeza')
-+sintoma('dolor_general')
-+sintoma('no_dolor')
-+sintoma('ardor')
++sintoma('Presenta dolores de cabeza')
++sintoma('Presenta dolor en la zona afectada')
++sintoma('No presenta dolor')
++sintoma('presenta ardor en la zona afectada')
 # 
-+sintoma('vision_borrosa_general')
-+sintoma('vision_borrosa_objetos_lejanos')
-+sintoma('vision_borrosa_objetos_cercanos')
-+sintoma('ver_doble')
-+sintoma('sensibilidad_luz')
-+sintoma('dificultad_noche')
++sintoma('su vision es borrosa en general')
++sintoma('su vision es borrosa al ver objetos lejanos')
++sintoma('su vision es borrosa al ver objetos cercanos')
++sintoma('ve doble')
++sintoma('Presenta sensibilidad a la luz')
++sintoma('Se le dificulta ver de noche')
 # 
-+sintoma('herencia_diabetes')
-+sintoma('herencia_miopia')
++sintoma('Tiene familiares que padezcan diabetes')
++sintoma('Tiene familiares que padezcan miopia')
 # 
-+sintoma('fatiga_visual')
-+sintoma('herida_ojo')
-+sintoma('ojos_rojos')
-+sintoma('lagrimeo')
-+sintoma('sensacion_objeto_en_el_ojo')
-+sintoma('herida_ojo')
-+sintoma('hinchazon')
-+sintoma('picazon')
++sintoma('Presenta fatiga visual')
++sintoma('ha tenido alguna herida en el ojo recientemente')
++sintoma('Tiene los ojos rojos')
++sintoma('Tiene la sensacion de tener un objeto en el ojo')
++sintoma('La zona afectada esta hinchada')
++sintoma('Tiene picazon en la zona afectada')
++sintoma('Presenta lagrimeo')
 # 
-+sintoma('pus_amarillo')
-+sintoma('pus_verde')
-+sintoma('pus_en_protuberancia')
++sintoma('De la zona afectada sale pus amarillo')
++sintoma('De la zona afectada sale pus verde')
++sintoma('Tiene pus en la protuberancia')
 # 
-+sintoma('dificultad_ver_colores_brillo')
-+sintoma('dificultad_ver_azul_morado')
-+sintoma('incapacidad_diferenciar_rojo_verde')
-+sintoma('incapacidad_diferenciar_azul_amarillo')
-+sintoma('resplandor_luces')
-+sintoma('colores_destenidos')
++sintoma('se le dificulta ver los colores y el brillo')
++sintoma('Se le dificulta diferenciar el azul del morado')
++sintoma('Es incapaz de diferenciar el rojo y el verde')
++sintoma('Es incapaz de diferenciar el azul y el amarillo')
++sintoma('Percibe resplandor y luces anormales')
++sintoma('ve los colores destenidos')
 # 
-+sintoma('diabetes')
-+sintoma('blefaritis')
-+sintoma('dermatitis')
++sintoma('Padece diabetes')
++sintoma('Padece blefaritis')
++sintoma('Padece dermatitis')
 
 +ubicacion_orzuelo('en_base_pestana')
 +ubicacion_orzuelo('en_interior_parpado')
 # 
-+sintoma('protuberancia_roja')
-+sintoma('expuesto_radiacion')
-+sintoma('expuesto_rayos_ultravioletas')
-+sintoma('sensible_tacto')
++sintoma('Tiene una protuberancia roja en el ojo')
++sintoma('Esta expuesto a radiacion constantemente')
++sintoma('Esta expuesto a rayos ultravioletas constantemente')
++sintoma('La zona afectada es sensible al tacto')
 # 
-+sintoma('mayor_de_30')
-+sintoma('menor_de_30')
-+sintoma('mayor_de_60')
-
-# enfermedad('miopia') <= dolor('cabeza') &\
-#                         vision('borrosa_objetos_lejanos') &\
-# 			                  afectacion('fatiga_visual') &\
-# 			                  herencia('diabetes') & \
-# 			                  herencia('miopia')
-
-# enfermedad('hipermetropia') <= edad('mayor_de_30')or \
-#                                edad('menor_de_30') and \
-# 			       				 vision('borrosa_objetos_lejanos') and \
-#                                vision('borrosa_objetos_cercanos')
-
-# enfermedad('conjuntivitis_alergica') <= vision('sensibilidad_luz') and \
-#                                         dolor('ardor') and \
-#                                         afectacion('ojos_rojos') and \
-#                                         afectacion('lagrimeo') and \
-#                                         afectacion('sensacion_objeto_en_el_ojo')
-
-# enfermedad ('conjuntivitis_infecciosa') <= vision('sensibilidad_luz') and \
-#                                            dolor('ardor') and \
-#                                            afectacion('ojos_rojos') and \
-#                                            afectacion('lagrimeo') and \
-#                                            afectacion('sensacion_objeto_en_el_ojo')and \
-#                                            (pus('amarillo') or \
-#                                            pus('verde'))
-
-# enfermedad ('cataratas') <= vision('borrosa_general') and \
-#                             vision('dificultad_noche') and\
-#                             vision('ver_doble') and\
-#                             color('dificultad_ver_azul_morado') and \
-#                             color('colores_destenidos')
-
-# enfermedad('cataratas') <=	edad('mayor_de_60') and\
-#                             (patologia('diabetes') or\
-#                             afectacion('herida_ojo') or\
-#                             otros_sintomas('expuesto_radiacion') or\
-#                             otros_sintomas('expuesto_rayos_ultravioletas'))                         
-                            
-# enfermedad ('orzuelo') <= ubicacion_orzuelo('en_base_pestana') or \
-#                            ubicacion_orzuelo('en_interior_parpado')and \
-#                            otros_sintomas('protuberancia_roja') and \
-#                            dolor('general') and\
-#                            afectacion('hinchazon') and \
-#                            afectacion('picazon') and\
-#                            afectacion('lagrimeo') and \
-#                            pus('en_protuberancia') or \
-#                            vision('sensibilidad_luz') or\
-#                            afectacion('sensacion_objeto_en_el_ojo') and \
-#                            color('resplandor_luces')
-
-# enfermedad('chalizion') <= otros_sintomas('protuberancia_roja') and \
-# 							dolor('no_dolor')
-
-# enfermedad('chalizion') <=  otros_sintomas('sensible_tacto') and \
-# 							vision('borrosa_general') and \
-# 							(patologia('diabetes') or \
-# 							patologia('blefaritis') or \
-# 							patologia('dermatitis'))
-
-# enfermedad('presbicia') <= vision('borrosa_objetos_cercanos') and \
-# 							otros_sintomas('fatiga_visual') and \
-# 							dolor('cabeza')
-
-# enfermedad('daltonismo') <= color('dificultad_ver_colores_brillo') or \
-# 							color('dificultad_ver_azul_morado') or\
-# 							color('incapacidad_diferenciar_rojo_verde') or \
-# 							color('incapacidad_diferenciar_azul_amarillo')
++sintoma('Es mayor de 30 anios')
++sintoma('Es menor de 30 anios')
++sintoma('Es mayor de 60 anios')
